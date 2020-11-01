@@ -15,8 +15,6 @@ matrix:
     - os: windows
       language: node_js
       node_js: "lts/*"
-  allow_failures:
-    - os: windows
 
 cache:
   yarn: true
@@ -31,7 +29,7 @@ before_install:
 
 script:
   # Build release for github-pages once on linux
-  - yarn run build
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then   yarn run build   ; fi
   # Build multi-OS binaries (using "Vue CLI Plugin Electron Builder")
   - yarn run electron:build
 
