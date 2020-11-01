@@ -44,9 +44,7 @@ before_deploy:
   - export VERSION=$(node -p "require('./package.json').version")
   - export TRAVIS_TAG=$VERSION-$(git log --format=%h -1)
   - git tag --force $TRAVIS_TAG
-  - ls .
-  - ls ./dist_electron
-  - ls $TRAVIS_BUILD_DIR
+  - cd $TRAVIS_BUILD_DIR # make sure to be in build dir (for Windows)
 
 deploy:
   # Github pages
