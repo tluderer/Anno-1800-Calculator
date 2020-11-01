@@ -29,7 +29,7 @@ before_install:
 
 script:
   # Build release for github-pages once on linux
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then   yarn run build   ; fi
+  - yarn run build
   # Build multi-OS binaries (using "Vue CLI Plugin Electron Builder")
   - yarn run electron:build
 
