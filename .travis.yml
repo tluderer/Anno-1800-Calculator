@@ -16,7 +16,7 @@ matrix:
       language: node_js
       node_js: "lts/*"
   allow_failures:
-    - windows
+    - os: windows
 
 cache:
   yarn: true
